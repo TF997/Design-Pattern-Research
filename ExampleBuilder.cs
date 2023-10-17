@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace Example.Builder;
@@ -55,7 +55,7 @@ public class Director
         HouseBuilder.BuildRoof();
     }
 		
-    public void BuildFullFeaturedProduct()
+    public void BuildStandardHouse()
     {
         HouseBuilder.BuildWalls();
         HouseBuilder.BuildRoof();
@@ -71,15 +71,15 @@ class ExampleBuilder
         var builder = new HouseHouseBuilder();
         director.HouseBuilder = builder;
             
-        Console.WriteLine("Standard basic product:");
+        Console.WriteLine("Basic House:");
         director.BuildBasicHouse();
         Console.WriteLine(builder.GetHouse().ListParts());
 
-        Console.WriteLine("Standard full featured product:");
-        director.BuildFullFeaturedProduct();
+        Console.WriteLine("Standard House:");
+        director.BuildStandardHouse();
         Console.WriteLine(builder.GetHouse().ListParts());
             
-        Console.WriteLine("Custom product:");
+        Console.WriteLine("Custom House:");
         builder.BuildWalls();
         builder.AddWindows();
         Console.Write(builder.GetHouse().ListParts());
